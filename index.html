@@ -1,496 +1,262 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <script
-      src="https://kit.fontawesome.com/8b7b88d68d.js"
-      crossorigin="anonymous"
-    ></script>
-    <link
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="js.css">
-    <title>sumit jaiswal</title>
-    <style>
-      *{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: sans-serif;
-      }
-    
-      body {
-        height: 230vh;
-        background: #000;
-      }
-    
-      li {
-        list-style: none;
-      }
-    
-      a {
-        text-decoration: none;
-        color: white;
-        font-size: 1rem;
-      }
-      .menu a:hover {
-        color: #ff7777;
-      }
-    
-      /*header*/
-    
-      header {
-        width: 100%;
-        height: 100vh;
-        background: url(https://images.pexels.com/photos/36487/above-adventure-aerial-air.jpg?auto=compress&cs=tinysrgb&w=1600)
-          no-repeat 50% 50%;
-        background-size: cover;
-      }
-    
-      nav {
-        width: 100%;
-        height: 60px;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        position: fixed;
-        transition: 0.5s;
-      }
-    
-      nav .logo a {
-        font-size: 2rem;
-        font-weight: bold;
-        color: #ff7777;
-        padding: 0 2rem;
-      }
-    
-      nav .menu {
-        display: flex;
-        gap: 2.5rem;
-      }
-    
-      nav .toggle_btn {
-        color: #ff7777;
-        font-size: 1.5rem;
-        cursor: pointer;
-        display: none;
-        margin-right: 2rem;
-      }
-    
-      nav .action_button {
-        margin-right: 2rem;
-      }
-    
-      nav.black {
-        background: #000;
-      }
-    
-      .action_button {
-        background-color: #ff7777;
-        color: #fff;
-        padding: 0.5rem 0.5rem;
-        border: none;
-        border-radius: 6px;
-        font-size: 1rem;
-        font-weight: bold;
-        cursor: pointer;
-        transition: scale 0.2 ease;
-      }
-    
-      .action_button:hover {
-        scale: 1.06;
-        color: #fff;
-      }
-    
-      .action_button:active {
-        scale: 0.95;
-      }
-    
-      .main_content {
-        width: 100%;
-        height: 100vh;
-        color: #fff;
-        position: center;
-        padding-top: 30vh;
-        padding-left: 80px;
-      }
-    
-      .main_content .par {
-        padding-left: 20px;
-        padding-bottom: 25px;
-        font-family: Arial;
-        letter-spacing: 1.2px;
-        line-height: 30px;
-      }
-    
-      .main_content h1 {
-        font-family: "Times New Roman";
-        font-size: 50px;
-        padding-left: 20px;
-    
-        letter-spacing: 2px;
-      }
-    
-      .main_content .cn {
-        width: 160px;
-        height: 40px;
-        background: #ff7777;
-        border: none;
-        margin-bottom: 10px;
-        margin-left: 20px;
-      }
-    
-      /*droup_menu*/
-      .droup_menu {
-        display: none;
-        position: absolute;
-        right: 2rem;
-        top: 65px;
-        width: 300px;
-        height: 0;
-        background: rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(15px);
-        border-radius: 10px;
-        overflow: hidden;
-        transform: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        border: black;
-        position: fixed;
-      }
-    
-      .droup_menu.open {
-        height: 260px;
-      }
-    
-      .droup_menu li {
-        padding: 0.7rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: black;
-      }
-    
-      .droup_menu .action_button {
-        width: 90%;
-        display: flex;
-        justify-content: center;
-      }
-    
-      .droup_menu.black {
-        background: #000;
-      }
-    
-      /*responsiv*/
-      @media (max-width: 992px) {
-        nav .menu,
-        nav .action_button {
-          display: none;
-        }
-    
-        nav .toggle_btn {
-          display: block;
-        }
-    
-        .droup_menu {
-          display: block;
-        }
-      }
-    
-      @media (max-width: 576px) {
-        .droup_menu {
-          left: 2erm;
-          width: 470px;
-        }
-        .main_content {
-          padding-top: 40vh;
-        }
-    
-        nav .logo a {
-          font-size: 4rem;
-          padding: 0 6rem;
-        }
-    
-        @media (max-width: 1625px) {
-          nav .logo a {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #ff7777;
-            padding: 0 2rem;
-            width: 400px;
-          }
-        }
-      }
-      @media (max-width: 1600px) {
-        .wrapper {
-          display: none;
-        }
-      }
-    
-      .content {
-        width: 100%;
-        height: 100vh;
-        background: url(https://webfoundation.org/docs/2019/09/Meaningful-Connectivity.jpg)
-          no-repeat 50% 50%;
-        background-size: cover;
-        background-attachment: fixed;
-        background-filter: blur(20px);
-      }
-    
-      .pag {
-        width: 100%;
-        padding: 10 10;
-        text-align: center;
-        font-size: 25px;
-        color: white;
-        position: side;
-      }
-    
-      .bottom {
-        width: 100%;
-        height: 30vh;
-        background: gray;
-      }
-      .bottom-bar {
-        background-color: #333;
-        color: #fff;
-        padding: 10px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        height: 30vh;
-      }
-    
-      .bottom-bar a {
-        text-decoration: none;
-        color: #fff;
-        margin: 0 15px;
-        padding: 10px;
-        font-size: medium;
-      }
-    
-      .corner-text {
-        font-size: 2rem;
-      }
-      .wrapper {
-         width: 365px;
-        background: transparent;
-         border: 2px solid rgba(255, 255, 255, 0.2);
-        backdrop-filter: blur(20px);
-        color: #fff;
-        border-radius: 10px;
-        padding: 30px 40px;
-        margin: -650px 70pc; 
-        position: absolute;
-      }
-      .wrapper h1 {
-        font-size: 36px;
-        text-align: center;
-      }
-      .wrapper .input-box {
-        position: relative;
-        width: 100%;
-        height: 50px;
-        margin: 30px 0;
-      }
-      .input-box input {
-        width: 100%;
-        height: 100%;
-        background: transparent;
-        border: none;
-        outline: none;
-        border: 2px solid rgba(255, 255, 255, 0.2);
-        border-radius: 40px;
-        font-size: 16px;
-        color: #fff;
-        padding: 20px 45px 20px 20px;
-      }
-      .input-box input::placeholder {
-        color: #fff;
-      }
-      .input-box i {
-        position: absolute;
-        right: 20px;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 20px;
-      }
-    
-      .wrapper .remember-forgot {
-        display: flex;
-        justify-content: space-between;
-        font-size: 14.5px;
-        margin: -15px 0 15px;
-      }
-    
-      .remember-forgot label input {
-        accent-color: #ffff;
-        margin-right: 3px;
-      }
-      .remember-forgot a {
-        color: #fff;
-        text-decoration: none;
-      }
-      .remember-forgot a:hover {
-        text-decoration: underline;
-      }
-      .wrapper .btn {
-        width: 100%;
-        height: 45px;
-        background: #fff;
-        border: none;
-        outline: none;
-        border-radius: 40px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        cursor: pointer;
-        font-size: 16px;
-        color: #333;
-        font-weight: 600;
-      }
-      .wrapper .register-link {
-        font-size: 14.5px;
-        text-align: center;
-        margin-top: 20px 0 15px;
-      }
-      .register-link p a {
-        color: #fff;
-        text-decoration: none;
-        font-weight: 600;
-      }
-      .register-link p a:hover {
-        text-decoration: underline;
-      }
-    </style>
-  </head>
-  <body>
-    <!--navbar-->
-    <header>
-      <nav>
-        <div class="logo"><a href="#">Sumit Jaiswal</a></div>
-        <ul class="menu">
-          <li><a href="www.google.com">Home</a></li>
-          <li><a href="business">Business</a></li>
-          <li><a href="community">Community</a></li>
-          <li><a href="careers">Careers</a></li>
-          <li><a href="about us">About us</a></li>
-        </ul>
-        <a href="#" class="action_button">Get start</a>
-        <div class="toggle_btn"><i class="fa-solid fa-bars"></i></div>
-      </nav>
-      <!--drop_menu-->
-      <div class="droup_menu">
-        <li><a href="hero">Home</a></li>
-        <li><a href="business">Business</a></li>
-        <li><a href="community">Community</a></li>
-        <li><a href="careers">Careers</a></li>
-        <li><a href="about us">About us</a></li>
-        <li><a href="#" class="action_button">Get start</a></li>
-      </div>
-      <!--detail-->
-      <div class="main_content">
-        <h1>
-          Web Design & <br />
-          <span>development</span> <br />course
-        </h1>
-        <p class="par">
-          Web developers play a crucial role in our society. Responsible for
-          developing <br />
-          and maintaining web pages, they're behind all of our favorite
-          websites, from Wikipedia to
-        </p>
 
-        <button class="cn"><a href="#">JOIN US</a></button>
-      </div>
-   
-      <!--login template-->
-      <section>
-        <div class="wrapper">
-          <form action="">
-            <h1>Login</h1>
-            <div class="input-box">
-              <input type="text" placeholder="username" required />
-              <i class="bx bxs-user"></i>
-            </div>
-            <div class="input-box">
-              <input type="password" placeholder="password" required />
-              <i class="bx bxs-lock-alt"></i>
-            </div>
-            <div class="remember-forgot">
-              <label><input type="checkbox" /> remember me</label>
-              <a href="#">forgot password?</a>
-            </div>
-            <button type="submit" class="btn">Login</button>
-            <div class="register-link">
-              <p>Don't have an account?<a href="#">Register</a></p>
-            </div>
-          </form>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Sumit Jaiswal</title>
+</head>
+
+<body>
+  <!-- Header -->
+  <section id="header">
+    <div class="header container">
+      <div class="nav-bar">
+        <div class="brand">
+          <a href="#hero">
+            <h1><span>S</span>umit <span>j</span>aiswal</h1>
+          </a>
         </div>
-      </section>
-   
-
-    <!--content-->
-    <div class="content">
-      <div class="pag">
-        <p>
-          The Indian software industry was non-existing up to 1974. According to
-          Tschang (2001), the eolution of the software industry in India can be
-          explained by three movements.
-        </p>
-        <br />
-        <p>History: unproductive investments preparing the ground</p>
-        <br />
-        <p>
-          Tschang (2001) states that the software industry has found its origin
-          in cities such as Mumbai (Bombay) and Bangalore. Bangalore was an
-          excellent place for to set up an establishment thanks to the large
-          pool of scientific talent developed by educational organizations and
-          the laboratories that were provided by the government. Unfortunately,
-          there was little gainful employment through which these investments
-          werent productive from an economic point of view. However, the
-          combination of these two previous mentioned factors formed a critical
-          basis for the growth of the software industry in India.
-        </p>
+        <div class="nav-list">
+          <div class="hamburger">
+            <div class="bar"></div>
+          </div>
+          <ul>
+            <li><a href="#hero" data-after="Home">Home</a></li>
+            <li><a href="#services" data-after="Service">Services</a></li>
+            <li><a href="#projects" data-after="Projects">Projects</a></li>
+            <li><a href="#about" data-after="About">About</a></li>
+            <li><a href="#contact" data-after="Contact">Contact</a></li>
+          </ul>
+        </div>
       </div>
     </div>
+  </section>
+  <!-- End Header -->
 
-    <div class="bottom">
-      <div class="bottom-bar">
-        <div>
-          <a href="#">Home</a>
-          <a href="#">Business</a>
-          <a href="#">Community</a>
-          <a href="#">Careers</a>
-          <a href="#">About Us</a>
-        </div>
-        <div class="corner-text">Sumit Jaiswal</div>
+
+  <!-- Hero Section  -->
+  <section id="hero">
+    <div class="hero container">
+      <div>
+        <h1>Hello, <span></span></h1>
+        <h1>My Name is <span></span></h1>
+        <h1>Sumit <span></span></h1>
+        <a href="#projects" type="button" class="cta">Portfolio</a>
       </div>
     </div>
-  </header>
-    <!--javascript-->
-    <script>
-      const toggleBtn = document.querySelector(".toggle_btn");
-  const toggleBtnIcon = document.querySelector(".toggle_btn i");
-  const droupMenu = document.querySelector(".droup_menu");
-  
-  toggleBtn.onclick = function () {
-    droupMenu.classList.toggle("open");
-    const isopen = droupMenu.classList.contains("open");
-  
-    toggleBtnIcon.classList = isopen
-      ? "fa-solid fa-xmark"
-      : "fa-solid fa-bars";
-  };
-  </script>
-  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-  <script>
-  $(window).scroll(function () {
-    if ($(window).scrollTop()) {
-      $("nav").addClass("black");
-    } else {
-      $("nav").removeClass("black");
-    }
-  }); 
-      </script>
-    
+  </section>
+  <!-- End Hero Section  -->
 
-  </body>
+  <!-- Service Section -->
+  <section id="services">
+    <div class="services container">
+      <div class="service-top">
+        <h1 class="section-title">Serv<span>i</span>ces</h1>
+        <p>I provide services as a Frontend Developer, specializing in
+           creating responsive and user-friendly web interfaces 
+          using HTML, CSS, and JavaScript. As a UI/UX Designer, I craft 
+          visually appealing and intuitive designs to ensure seamless user
+           experiences. I am skilled in Data Structures and Algorithms (DSA) using C,
+            enabling me to develop efficient solutions for complex problems.
+            </p>
+      </div>
+      <div class="service-bottom">
+        <div class="service-item">
+          <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/services.png" /></div>
+          <h2>Frontend Developer</h2>
+          <p>I specialize in creating modern, responsive, and user-friendly web interfaces using HTML, CSS, and JavaScript.</p>
+        </div>
+        <div class="service-item">
+          <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/services.png" /></div>
+          <h2>UI/UX Designer</h2>
+          <p>I design intuitive and aesthetically pleasing user interfaces, ensuring seamless interaction between users and digital products.
+            also functional and user-centric.</p>
+        </div>
+        <div class="service-item">
+          <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/services.png" /></div>
+          <h2>(DSA) in C</h2>
+          <p>I have a strong grasp of DSA concepts, which I implement in C programming to solve complex problems efficiently.
+             My expertise includes working for computational.</p>
+        </div>
+        <div class="service-item">
+          <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/services.png" /></div>
+          <h2>Programming in Python</h2>
+          <p>I am proficient in Python programming, utilizing it for automation, web development, data analysis, and more.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Service Section -->
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="projects container">
+      <div class="projects-header">
+        <h1 class="section-title">Recent <span>Projects</span></h1>
+      </div>
+      <div class="all-projects">
+        <div class="project-item">
+          <div class="project-info">
+            <h1>Project 1</h1>
+            <h2>UI/UX Design</h2>
+            <p> I have designed using Figma, features a visually captivating and intuitive interface. 
+              It provides real-time weather updates, detailed forecasts, air quality indices, UV levels, 
+              and other essential data, delivering a seamless and engaging user experience.</p>
+              <a href="https://drive.google.com/file/d/1a0s2CSjR-48qOT62NqUeOvkUah_HZ0uX/view" class="cta">View Project</a>
+          </div>
+          <div class="project-img">
+            <img src="./img/img8.jpg" alt="img">
+          </div>
+        </div>
+        <div class="project-item">
+          <div class="project-info">
+            <h1>Project 2</h1>
+            <h2>Python</h2>
+            <p>The "Rock, Paper, Scissors" game is an interactive Python project where players
+               challenge the computer. It demonstrates the use of randomness, user input validation,
+                and conditional statements, making it both educational and entertaining.</p>
+              <a href="game.py" class="cta">View Project</a>
+          </div>
+          <div class="project-img">
+            <img src="./img/img9.jpg" alt="img">
+          </div>
+        </div>
+        <div class="project-item">
+          <div class="project-info">
+            <h1>Project 3</h1>
+            <h2>C porgramming</h2>
+            <p>
+              This C-based simple calculator program allows users to perform basic arithmetic operations
+               like addition, subtraction, multiplication, and division. It features a user-friendly interface
+                with input validation, handles division by zero, and ensures efficient mathematical 
+                calculations interactively.</p>
+              <a href="project.c" class="cta">View Project</a>
+          </div>
+          <div class="project-img">
+            <img src="./img/img10.jpg" alt="img">
+          </div>
+        </div>
+        <div class="project-item">
+          <div class="project-info">
+            <h1>Project 4</h1>
+            <h2>Web Development</h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, iusto cupiditate voluptatum impedit unde
+              rem ipsa distinctio illum quae mollitia ut, accusantium eius odio ducimus illo neque atque libero non sunt
+              harum? Ipsum repellat animi, fugit architecto voluptatum odit et!</p>
+               <a href="https://sumitjaiswal.cloud " class="cta">View Project</a>
+          </div>
+          <div class="project-img">
+            <img src="./img/img11.jpg" alt="img">
+          </div>
+        </div>
+        <div class="project-item">
+          <div class="project-info">
+            <h1>Project 5</h1>
+            <h2>Coding is Love</h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, iusto cupiditate voluptatum impedit unde
+              rem ipsa distinctio illum quae mollitia ut, accusantium eius odio ducimus illo neque atque libero non sunt
+              harum? Ipsum repellat animi, fugit architecto voluptatum odit et!</p> 
+              <a href="#" class="cta">View Project</a>
+          </div>
+          <div class="project-img">
+            <img src="./img/img-1.png" alt="img">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Projects Section -->
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="about container">
+      <div class="col-left">
+        <div class="about-img">
+          <img src="./img/img12.jpeg" alt="img">
+        </div>
+      </div>
+      <div class="col-right">
+        <h1 class="section-title">About <span>me</span></h1>
+        <h2>Front End Developer</h2>
+        <p>I am a dedicated Diploma student in Computer
+          Science with a strong foundation in frontend
+          development, WordPress customization, and
+          programming languages like C and Python. I am
+          passionate about creating intuitive user interfaces
+          and efficient solutions while continuously
+          improving my technical expertise. Seeking a
+          trainee position to gain hands-on experience and
+          contribute to innovative projects in the tech
+          industry. </p>
+        <a href="https://drive.google.com/file/d/1_8Bp4-1VDAPpTEGdtiKytrRVNi3o5PTL/view" class="cta">Download Resume</a>
+      </div>
+    </div>
+  </section>
+  <!-- End About Section -->
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="contact container">
+      <div>
+        <h1 class="section-title">Contact <span>info</span></h1>
+      </div>
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/phone.png" /></div>
+          <div class="contact-info">
+            <h1>Phone</h1>
+            <h2>+91 8528583076</h2>
+            <h2>+91 9198924176</h2>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/new-post.png" /></div>
+          <div class="contact-info">
+            <h1>Email</h1>
+            <h2>Jaiswalsumit456@gmail.com</h2>
+            <h2>sj47401@gmail.com</h2>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/map-marker.png" /></div>
+          <div class="contact-info">
+            <h1>Address</h1>
+            <h2>Nautanwa, Maharajgunj, Uttar Pradesh </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Contact Section -->
+
+  <!-- Footer -->
+  <section id="footer">
+    <div class="footer container">
+      <div class="brand">
+        <h1><span>S</span>umit <span>J</span>aiswal</h1>
+      </div>
+      <h2>My Complete Web Solution</h2>
+      <div class="social-icon">
+        <div class="social-item">
+          <a href="#"><img src="https://img.icons8.com/bubbles/100/000000/facebook-new.png" /></a>
+        </div>
+        <div class="social-item">
+          <a href="#"><img src="https://img.icons8.com/?size=100&id=64154&format=png&color=000000" /></a>
+        </div>
+        <div class="social-item">
+          <a href="#"><img src="https://img.icons8.com/?size=100&id=bG29Ckcdp6YP&format=png&color=000000" /></a>
+        </div>
+        <div class="social-item">
+          <a href="#"><img src="https://img.icons8.com/?size=100&id=TSZw5VixabhS&format=png&color=000000" /></a>
+        </div>
+      </div>
+      <p>Copyright © 2024 Sumit. All rights reserved</p>
+    </div>
+  </section>
+  <!-- End Footer -->
+  <script src="./app.js"></script>
+</body>
+
 </html>
