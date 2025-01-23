@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sumit Jaiswal Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #d3d3d8;
+            color: #333;
+            overflow-x: hidden;
+        }
+        header {
+            background: linear-gradient(90deg, #a22358, #ff758c);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: color 0.3s, transform 0.3s;
+}
+
+nav a:hover {
+    color: #ffd700;
+    transform: scale(1.1); /* Slightly increase the size on hover */
+}
+        .hero {
+            background: url('https://via.placeholder.com/1500x500') no-repeat center/cover;
+            color: rgb(255, 255, 255);
+            padding: 8rem 2rem;
+            text-align: center;
+            animation: fadeIn 2s ease-in;
+        }
+        .hero h1 {
+            font-size: 4rem;
+            margin: 0;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        .hero p {
+            font-size: 1.5rem;
+            margin-top: 1rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        section {
+            padding: 4rem 2rem;
+            margin: 2rem auto;
+            max-width: 1000px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+        section:hover {
+            transform: translateY(-10px);
+        }
+        section h2 {
+            text-align: center;
+            color: #333;
+            font-size: 2.5rem;
+        }
+        section p, ul {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            text-align: justify;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+        }
+        ul li::before {
+            content: "\2713";
+            color: #4CAF50;
+            margin-right: 1rem;
+        }
+        footer {
+            background: linear-gradient(90deg, #333, #666);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        .social-links a {
+            margin: 0 10px;
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+    <script>
+        window.addEventListener('scroll', () => {
+    const header = document.querySelector('header');
+    
+    if (window.scrollY > 50) {  // When scroll position is more than 50px
+        header.style.backgroundColor = 'rgba(255, 119, 140, 0.9)';  // Change background to a transparent red gradient
+    } else {
+        header.style.backgroundColor = 'linear-gradient(90deg, #ff7eb3, #ff758c)';  // Reset to original gradient
+    }
+});
+
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Sumit Jaiswal's Portfolio</h1>
+        <nav>
+            <a href="#about">About Me</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+    <div id="root"></div>
+    <footer>
+        <div class="social-links">
+            <a href="https://instagram.com/" target="_blank">Instagram</a>
+            <a href="https://facebook.com/" target="_blank">Facebook</a>
+            <a href="https://github.com/" target="_blank">GitHub</a>
+            <a href="https://linkedin.com/" target="_blank">LinkedIn</a>
+        </div>
+        <p>&copy; 2025 Sumit Jaiswal. All Rights Reserved. | Designed with ❤️</p>
+    </footer>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        const Hero = () => (
+            <div className="hero">
+                <h1>Hi, I'm Sumit Jaiswal</h1>
+                <p>Aspiring Web Developer & Designer</p>
+            </div>
+        );
+
+        const About = () => (
+            <section id="about">
+                <h2>About Me</h2>
+                <p>
+                    I am Sumit Jaiswal, a passionate final-year Computer Science student dedicated to designing and developing modern, user-friendly web applications. With a strong grasp of front-end and back-end technologies, I thrive on solving real-world challenges through innovative solutions.
+                </p>
+            </section>
+        );
+
+        const Skills = () => (
+            <section id="skills">
+                <h2>Skills</h2>
+                <ul>
+                    <li>HTML & CSS - Mastered responsive designs and layouts</li>
+                    <li>JavaScript (ES6+) - Proficient in modern JavaScript concepts</li>
+                    <li>React.js - Experienced in building dynamic web applications</li>
+                    <li>Node.js & Express - Backend development with RESTful APIs</li>
+                    <li>Database Management - MySQL, MongoDB</li>
+                    <li>Version Control - Git, GitHub, and collaboration</li>
+                </ul>
+            </section>
+        );
+
+        const Projects = () => (
+            <section id="projects">
+                <h2>Projects</h2>
+                <div>
+                    <h3>Portfolio Website</h3>
+                    <img src="https://via.placeholder.com/600x300" alt="Portfolio Screenshot" style={{ width: '100%', borderRadius: '10px', marginBottom: '1rem' }} />
+                    <p>
+                        A fully responsive portfolio website showcasing my skills and projects, built using React, HTML, and CSS.
+                    </p>
+
+                    <h3>E-commerce Platform</h3>
+                    <img src="https://via.placeholder.com/600x300" alt="E-commerce Screenshot" style={{ width: '100%', borderRadius: '10px', marginBottom: '1rem' }} />
+                    <p>
+                        An advanced e-commerce website featuring user authentication, product listings, and cart management.
+                    </p>
+
+                    <h3>Blog Application</h3>
+                    <img src="https://via.placeholder.com/600x300" alt="Blog Screenshot" style={{ width: '100%', borderRadius: '10px', marginBottom: '1rem' }} />
+                    <p>
+                        A blog application with dynamic content management, built with React and Node.js.
+                    </p>
+
+                    <h3>Weather App</h3>
+                    <img src="https://via.placeholder.com/600x300" alt="Weather App Screenshot" style={{ width: '100%', borderRadius: '10px', marginBottom: '1rem' }} />
+                    <p>
+                        A real-time weather app fetching data from an API and showcasing the forecast in an intuitive UI.
+                    </p>
+                </div>
+            </section>
+        );
+
+        const Contact = () => (
+            <section id="contact">
+                <h2>Contact</h2>
+                <p>
+                    Let's connect! You can reach me via email at <a href="mailto:sumit.jaiswal@example.com">sumit.jaiswal@example.com</a> or follow me on my social media links below.
+                </p>
+            </section>
+        );
+
+        const App = () => (
+            <>
+                <Hero />
+                <About />
+                <Skills />
+                <Projects />
+                <Contact />
+            </>
+        );
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>
