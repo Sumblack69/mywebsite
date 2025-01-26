@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Run C Code Online</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-top: 20px;
+        }
+
+        textarea {
+            width: 80%;
+            height: 200px;
+            margin: 20px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        pre {
+            width: 80%;
+            background: #fff;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        #output {
+            color: #333;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Run C Code Online</h1>
+    <textarea id="codeArea" placeholder="Write your C code here..."></textarea>
+    <button id="runButton">Run Code</button>
+    <h3>Output:</h3>
+    <pre id="outputArea"></pre>
+    <script>
+       document.getElementById('runButton').addEventListener('click', async (event) => {
+    event.preventDefault(); // Prevent page refresh
+    const code = document.getElementById('codeArea').value;
+    const outputArea = document.getElementById('outputArea');
+
+    outputArea.textContent = "Running...";
+
+    try {
+        const response = await fetch('http://127.0.0.1:5000/compile', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ code }),
+        });
+
+        if (response.ok) {
+            const result = await response.json();
+            outputArea.textContent = result.output;
+        } else {
+            const error = await response.json();
+            outputArea.textContent = `Error: ${error.output}`;
+        }
+    } catch (error) {
+        outputArea.textContent = `Error: ${error.message}`;
+    }
+});
+    </script>
+</body>
+</html>
