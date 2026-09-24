@@ -1,102 +1,36 @@
 <!DOCTYPE html>
-<html lang="eng">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Run C Code Online</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        h1 {
-            color: #333;
-            margin-top: 20px;
-        }
-
-        textarea {
-            width: 80%;
-            height: 200px;
-            margin: 20px 0;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 16px;
-        }
-
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-
-        pre {
-            width: 80%;
-            background: #fff;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            overflow-x: auto;
-        }
-
-        #output {
-            color: #333;
-        }
-
-        .error {
-            color: red;
-        }
-    </style>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>C Compiler | Sumit Jaiswal</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#070b16;color:#f5f7fb;font:16px Inter,system-ui,sans-serif;padding:30px}.wrap{max-width:1100px;margin:auto}a{color:#22d3ee}.top{display:flex;justify-content:space-between;align-items:center;gap:15px}.editor{width:100%;min-height:420px;margin:20px 0;padding:18px;background:#0d1324;color:#dbeafe;border:1px solid #25304a;border-radius:14px;font:15px/1.6 Consolas,monospace;resize:vertical}.actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}button{border:0;border-radius:9px;padding:12px 20px;background:#8b5cf6;color:white;font-weight:700;cursor:pointer}button:disabled{opacity:.6}.clear{background:#182238}.status{color:#8f9aae}.output{white-space:pre-wrap;min-height:160px;padding:18px;background:#090d18;border:1px solid #25304a;border-radius:14px;font:14px/1.6 Consolas,monospace}h1{font-size:clamp(2rem,5vw,3.5rem)}small{color:#8f9aae}
+</style>
 </head>
-<body>
-    <h1>Run C Code Online</h1>
-    <textarea id="codeArea" placeholder="Write your C code here..."></textarea>
-    <button id="runButton">Run Code</button>
-    <h3>Output:</h3>
-    <pre id="outputArea"></pre>
-    <script>
-       document.getElementById('runButton').addEventListener('click', async (event) => {
-    event.preventDefault(); // Prevent page refresh
-    const code = document.getElementById('codeArea').value;
-    const outputArea = document.getElementById('outputArea');
+<body><main class="wrap">
+<div class="top"><div><small><a href="index.html">← Back to portfolio</a></small><h1>Run C Code Online</h1></div></div>
+<p>Write C code below and run it using a remote GCC execution service. No local Flask server is required for this hosted page.</p>
+<textarea id="code" class="editor">#include <stdio.h>
 
-    outputArea.textContent = "Running...";
-
-    try {
-        const response = await fetch('http://127.0.0.1:5000/compile', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ code }),
-        });
-
-        if (response.ok) {
-            const result = await response.json();
-            outputArea.textContent = result.output;
-        } else {
-            const error = await response.json();
-            outputArea.textContent = `Error: ${error.output}`;
-        }
-    } catch (error) {
-        outputArea.textContent = `Error: ${error.message}`;
-    }
-});
-    </script>
-</body>
-</html>
+int main(void) {
+    printf("Hello, Sumit!\n");
+    return 0;
+}</textarea>
+<div class="actions"><button id="run">▶ Run Code</button><button id="clear" class="clear">Clear</button><span id="status" class="status"></span></div>
+<h3>Output</h3><pre id="output" class="output">Ready.</pre>
+<small>Tip: online execution services may rate-limit requests. Never paste passwords, API keys or private code.</small>
+</main>
+<script>
+const code=document.getElementById('code'),run=document.getElementById('run'),clear=document.getElementById('clear'),output=document.getElementById('output'),status=document.getElementById('status');
+run.onclick=async()=>{const source=code.value.trim();if(!source){output.textContent='Please enter some C code.';return}run.disabled=true;status.textContent='Compiling…';output.textContent='';
+try{
+ const res=await fetch('https://emkc.org/api/v2/piston/execute',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({language:'c',version:'10.2.0',files:[{name:'main.c',content:source}]})});
+ if(!res.ok) throw new Error('Compiler service returned HTTP '+res.status);
+ const data=await res.json(); const r=data.run||{}; const c=data.compile||{};
+ const parts=[]; if(c.output)parts.push(c.output); if(c.stderr)parts.push(c.stderr); if(r.stdout)parts.push(r.stdout); if(r.stderr)parts.push(r.stderr);
+ output.textContent=parts.join('\n')||'Program finished with no output.';
+ status.textContent=r.code===0?'Finished successfully.':'Finished with an error.';
+}catch(e){output.textContent='Could not reach the online compiler.\n\n'+e.message+'\n\nIf the service is temporarily unavailable, try again later.';status.textContent='Request failed.'}
+finally{run.disabled=false}};
+clear.onclick=()=>{code.value='';output.textContent='Ready.';status.textContent=''};
+</script></body></html>
