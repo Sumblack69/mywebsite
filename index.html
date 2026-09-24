@@ -1,264 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <meta name="description"
-    content="codewithsumit is a platform to learn coding, web development and programming tutorials.">
-  <meta name="keywords" content="codewithsumit, coding, sumit jaiswal, web development"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sumit Jaiswal — frontend developer and computer science student building responsive web experiences and practical software projects.">
+  <meta name="keywords" content="Sumit Jaiswal, frontend developer, web developer, HTML, CSS, JavaScript, Python, C, WordPress, IIT Madras">
+  <meta name="author" content="Sumit Jaiswal">
+  <meta name="theme-color" content="#0b1020">
+  <meta property="og:title" content="Sumit Jaiswal | Frontend Developer">
+  <meta property="og:description" content="Portfolio of Sumit Jaiswal — frontend development, UI/UX and programming projects.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <title>codewithsumit - learn coding with sumit</title>
+  <title>Sumit Jaiswal | Frontend Developer</title>
 </head>
-
 <body>
-  <!-- Header -->
-  <section id="header">
-    <div class="header container">
-      <div class="nav-bar">
-        <div class="brand">
-          <a href="#hero">
-            <h1><span>S</span>umit <span>j</span>aiswal</h1>
-          </a>
-        </div>
-        <div class="nav-list">
-          <div class="hamburger">
-            <div class="bar"></div>
-          </div>
-          <ul>
-            <li><a href="#hero" data-after="Home">Home</a></li>
-            <li><a href="#services" data-after="Service">Services</a></li>
-            <li><a href="#projects" data-after="Projects">Projects</a></li>
-            <li><a href="#about" data-after="About">About</a></li>
-            <li><a href="#contact" data-after="Contact">Contact</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- End Header -->
+  <a class="skip-link" href="#main">Skip to content</a>
 
+  <header id="header">
+    <nav class="nav container" aria-label="Primary navigation">
+      <a class="brand" href="#hero" aria-label="Sumit Jaiswal home"><span>S</span>umit Jaiswal</a>
+      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul id="site-menu" class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a class="nav-cta" href="https://github.com/Sumblack69" target="_blank" rel="noopener noreferrer">GitHub ↗</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <!-- Hero Section  -->
-  <section id="hero">
-    <div class="hero container">
-      <div>
-        <h1>Hello, <span></span></h1>
-        <h1>My Name is <span></span></h1>
-        <h1>Sumit <span></span></h1>
-        <a href="#projects" type="button" class="cta">Portfolio</a>
+  <main id="main">
+    <section id="hero" class="hero">
+      <div class="hero-bg"></div>
+      <div class="container hero-content">
+        <div class="hero-copy">
+          <p class="eyebrow">Frontend Developer • CSE • Data Science</p>
+          <h1>Building clean, useful <span>digital experiences.</span></h1>
+          <p class="hero-text">I'm Sumit Jaiswal, a computer science student focused on frontend development, UI/UX and practical programming projects.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#projects">View my work</a>
+            <a class="button secondary" href="#contact">Let's connect</a>
+          </div>
+          <div class="hero-meta">
+            <span>📍 Uttar Pradesh, India</span>
+            <span>🎓 IIT Madras BS in Data Science</span>
+          </div>
+        </div>
+        <div class="hero-card" aria-label="Profile summary">
+          <div class="code-window">
+            <div class="window-bar"><i></i><i></i><i></i><span>sumit.js</span></div>
+            <pre><code><span class="code-key">const</span> developer = {
+  name: <span class="code-string">"Sumit Jaiswal"</span>,
+  focus: <span class="code-string">"Frontend"</span>,
+  stack: [<span class="code-string">"HTML"</span>, <span class="code-string">"CSS"</span>,
+          <span class="code-string">"JavaScript"</span>, <span class="code-string">"Python"</span>],
+  mindset: <span class="code-string">"Keep learning"</span>
+};</code></pre>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
-  <!-- End Hero Section  -->
+    </section>
 
-  <!-- Service Section -->
-  <section id="services">
-    <div class="services container">
-      <div class="service-top">
-        <h1 class="section-title">Serv<span>i</span>ces</h1>
-        <p>I provide services as a Frontend Developer, specializing in
-           creating responsive and user-friendly web interfaces 
-          using HTML, CSS, and JavaScript. As a UI/UX Designer, I craft 
-          visually appealing and intuitive designs to ensure seamless user
-           experiences. I am skilled in Data Structures and Algorithms (DSA) using C,
-            enabling me to develop efficient solutions for complex problems.
-            </p>
-      </div>
-      <div class="service-bottom">
-        <div class="service-item">
-          <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/services.png" /></div>
-          <h2>Frontend Developer</h2>
-          <p>I specialize in creating modern, responsive, and user-friendly web interfaces using HTML, CSS, and JavaScript.</p>
+    <section id="about" class="section">
+      <div class="container about-grid">
+        <div>
+          <p class="eyebrow">About me</p>
+          <h2>Turning ideas into <span>working interfaces.</span></h2>
         </div>
-        <div class="service-item">
-          <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/services.png" /></div>
-          <h2>UI/UX Designer</h2>
-          <p>I design intuitive and aesthetically pleasing user interfaces, ensuring seamless interaction between users and digital products.
-            also functional and user-centric.</p>
-        </div>
-        <div class="service-item">
-          <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/services.png" /></div>
-          <h2>(DSA) in C</h2>
-          <p>I have a strong grasp of DSA concepts, which I implement in C programming to solve complex problems efficiently.
-             My expertise includes working for computational.</p>
-        </div>
-        <div class="service-item">
-          <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/services.png" /></div>
-          <h2>Programming in Python</h2>
-          <p>I am proficient in Python programming, utilizing it for automation, web development, data analysis, and more.</p>
+        <div class="about-copy">
+          <p>I have a Diploma in Computer Science & Engineering and I’m currently pursuing the BS in Data Science and Applications from IIT Madras.</p>
+          <p>My interests include responsive frontend development, WordPress, UI/UX design and programming with C and Python. I enjoy taking an idea from a rough concept to a usable web experience.</p>
+          <a class="text-link" href="https://github.com/Sumblack69" target="_blank" rel="noopener noreferrer">Explore my GitHub →</a>
         </div>
       </div>
-    </div>
-  </section>
-  <!-- End Service Section -->
+    </section>
 
-  <!-- Projects Section -->
-  <section id="projects">
-    <div class="projects container">
-      <div class="projects-header">
-        <h1 class="section-title">Recent <span>Projects</span></h1>
-      </div>
-      <div class="all-projects">
-        <div class="project-item">
-          <div class="project-info">
-            <h1>Project 1</h1>
-            <h2>UI/UX Design</h2>
-            <p> I have designed using Figma, features a visually captivating and intuitive interface. 
-              It provides real-time weather updates, detailed forecasts, air quality indices, UV levels, 
-              and other essential data, delivering a seamless and engaging user experience.</p>
-              <a href="https://drive.google.com/file/d/1a0s2CSjR-48qOT62NqUeOvkUah_HZ0uX/view" class="cta">View Project</a>
-          </div>
-          <div class="project-img">
-            <img src="./img/img8.jpg" alt="img">
-          </div>
+    <section id="skills" class="section section-alt">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">What I work with</p>
+          <h2>Skills & tools</h2>
         </div>
-        <div class="project-item">
-          <div class="project-info">
-            <h1>Project 2</h1>
-            <h2>Python</h2>
-            <p>The "Rock, Paper, Scissors" game is an interactive Python project where players
-               challenge the computer. It demonstrates the use of randomness, user input validation,
-                and conditional statements, making it both educational and entertaining.</p>
-              <a href="game.py" class="cta">View Project</a>
-          </div>
-          <div class="project-img">
-            <img src="./img/img9.jpg" alt="img">
-          </div>
-        </div>
-        <div class="project-item">
-          <div class="project-info">
-            <h1>Project 3</h1>
-            <h2>C porgramming</h2>
-            <p>
-              This C-based simple calculator program allows users to perform basic arithmetic operations
-               like addition, subtraction, multiplication, and division. It features a user-friendly interface
-                with input validation, handles division by zero, and ensures efficient mathematical 
-                calculations interactively.</p>
-              <a href="compiler.html" class="cta">View Project</a>
-          </div>
-          <div class="project-img">
-            <img src="./img/img10.jpg" alt="img">
-          </div>
-        </div>
-        <div class="project-item">
-          <div class="project-info">
-            <h1>Project 4</h1>
-            <h2>Web Development</h2>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, iusto cupiditate voluptatum impedit unde
-              rem ipsa distinctio illum quae mollitia ut, accusantium eius odio ducimus illo neque atque libero non sunt
-              harum? Ipsum repellat animi, fugit architecto voluptatum odit et!</p>
-               <a href="mt.html" class="cta">View Project</a>
-          </div>
-          <div class="project-img">
-            <img src="./img/img11.jpg" alt="img">
-          </div>
-        </div>
-        <div class="project-item">
-          <div class="project-info">
-            <h1>Project 5</h1>
-            <h2>Coding is Love</h2>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, iusto cupiditate voluptatum impedit unde
-              rem ipsa distinctio illum quae mollitia ut, accusantium eius odio ducimus illo neque atque libero non sunt
-              harum? Ipsum repellat animi, fugit architecto voluptatum odit et!</p> 
-              <a href="#" class="cta">View Project</a>
-          </div>
-          <div class="project-img">
-            <img src="./img/img-1.png" alt="img">
-          </div>
+        <div class="skills-grid">
+          <article class="skill-card"><span>01</span><h3>Frontend</h3><p>HTML, CSS and JavaScript for responsive, accessible interfaces.</p></article>
+          <article class="skill-card"><span>02</span><h3>Programming</h3><p>C, Python and DSA fundamentals for problem solving and projects.</p></article>
+          <article class="skill-card"><span>03</span><h3>Design</h3><p>UI/UX thinking and Figma for clean layouts and user-focused flows.</p></article>
+          <article class="skill-card"><span>04</span><h3>Web & CMS</h3><p>WordPress customization, GitHub and practical web deployment workflows.</p></article>
         </div>
       </div>
-    </div>
-  </section>
-  <!-- End Projects Section -->
+    </section>
 
-  <!-- About Section -->
-  <section id="about">
-    <div class="about container">
-      <div class="col-left">
-        <div class="about-img">
-          <img src="./img/img12.jpeg" alt="img">
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="section-heading projects-heading">
+          <div><p class="eyebrow">Selected work</p><h2>Projects</h2></div>
+          <a class="text-link" href="https://github.com/Sumblack69" target="_blank" rel="noopener noreferrer">See GitHub →</a>
         </div>
-      </div>
-      <div class="col-right">
-        <h1 class="section-title">About <span>me</span></h1>
-        <h2>Front End Developer</h2>
-        <p>I am a dedicated Diploma student in Computer
-          Science with a strong foundation in frontend
-          development, WordPress customization, and
-          programming languages like C and Python. I am
-          passionate about creating intuitive user interfaces
-          and efficient solutions while continuously
-          improving my technical expertise. Seeking a
-          trainee position to gain hands-on experience and
-          contribute to innovative projects in the tech
-          industry. </p>
-        <a href="https://drive.google.com/file/d/1_8Bp4-1VDAPpTEGdtiKytrRVNi3o5PTL/view" class="cta">Download Resume</a>
-      </div>
-    </div>
-  </section>
-  <!-- End About Section -->
 
-  <!-- Contact Section -->
-  <section id="contact">
-    <div class="contact container">
-      <div>
-        <h1 class="section-title">Contact <span>info</span></h1>
-      </div>
-      <div class="contact-items">
-        <div class="contact-item">
-          <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/phone.png" /></div>
-          <div class="contact-info">
-            <h1>Phone</h1>
-            <h2>+91 8528583076</h2>
-            <h2>+91 9198924176</h2>
-          </div>
-        </div>
-        <div class="contact-item">
-          <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/new-post.png" /></div>
-          <div class="contact-info">
-            <h1>Email</h1>
-            <h2>Jaiswalsumit456@gmail.com</h2>
-            <h2>sj47401@gmail.com</h2>
-          </div>
-        </div>
-        <div class="contact-item">
-          <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/map-marker.png" /></div>
-          <div class="contact-info">
-            <h1>Address</h1>
-            <h2>Nautanwa, Maharajgunj, Uttar Pradesh </h2>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- End Contact Section -->
+        <div class="projects-grid">
+          <article class="project-card featured">
+            <div class="project-number">01</div>
+            <div>
+              <p class="project-type">UI/UX • Figma</p>
+              <h3>Weather App UI</h3>
+              <p>A weather experience designed around forecasts, air quality, UV information and a simple visual hierarchy.</p>
+              <a href="https://drive.google.com/file/d/1a0s2CSjR-48qOT62NqUeOvkUah_HZ0uX/view" target="_blank" rel="noopener noreferrer">View design ↗</a>
+            </div>
+          </article>
 
-  <!-- Footer -->
-  <section id="footer">
-    <div class="footer container">
-      <div class="brand">
-        <h1><span>S</span>umit <span>J</span>aiswal</h1>
+          <article class="project-card">
+            <div class="project-number">02</div>
+            <div>
+              <p class="project-type">Python</p>
+              <h3>Rock Paper Scissors</h3>
+              <p>A small interactive Python project using random choices, input handling and conditional logic.</p>
+              <a href="game.py">View source ↗</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-number">03</div>
+            <div>
+              <p class="project-type">C • Web</p>
+              <h3>C Code Compiler</h3>
+              <p>A browser interface for sending C code to a local Flask/GCC backend for compilation and output.</p>
+              <a href="compiler.html">Open project ↗</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-number">04</div>
+            <div>
+              <p class="project-type">Web development</p>
+              <h3>Mini web projects</h3>
+              <p>A collection of experiments and frontend work built while learning modern web development.</p>
+              <a href="mt.html">Open project ↗</a>
+            </div>
+          </article>
+        </div>
       </div>
-      <h2>My Complete Web Solution</h2>
-      <div class="social-icon">
-        <div class="social-item">
-          <a href="#"><img src="https://img.icons8.com/bubbles/100/000000/facebook-new.png" /></a>
+    </section>
+
+    <section id="contact" class="section contact-section">
+      <div class="container contact-grid">
+        <div>
+          <p class="eyebrow">Get in touch</p>
+          <h2>Have a project or idea?<br><span>Let's talk.</span></h2>
+          <p class="contact-copy">For freelance work, collaboration or a quick tech conversation, feel free to reach out.</p>
         </div>
-        <div class="social-item">
-          <a href="#"><img src="https://img.icons8.com/?size=100&id=64154&format=png&color=000000" /></a>
-        </div>
-        <div class="social-item">
-          <a href="#"><img src="https://img.icons8.com/?size=100&id=bG29Ckcdp6YP&format=png&color=000000" /></a>
-        </div>
-        <div class="social-item">
-          <a href="#"><img src="https://img.icons8.com/?size=100&id=TSZw5VixabhS&format=png&color=000000" /></a>
+        <div class="contact-links">
+          <a href="mailto:Jaiswalsumit456@gmail.com"><small>Email</small><strong>Jaiswalsumit456@gmail.com</strong></a>
+          <a href="https://github.com/Sumblack69" target="_blank" rel="noopener noreferrer"><small>GitHub</small><strong>@Sumblack69 ↗</strong></a>
+          <div><small>Location</small><strong>Uttar Pradesh, India</strong></div>
         </div>
       </div>
-      <p>Copyright © 2024 Sumit. All rights reserved</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <a class="brand" href="#hero"><span>S</span>umit Jaiswal</a>
+      <p>© <span id="year"></span> Sumit Jaiswal. Built with HTML, CSS & JavaScript.</p>
     </div>
-  </section>
-  <!-- End Footer -->
-  <script src="./app.js"></script>
+  </footer>
+
+  <script src="app.js"></script>
 </body>
-
 </html>
